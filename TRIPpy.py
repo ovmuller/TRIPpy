@@ -28,7 +28,7 @@ def main():
     version = 'v1.0'
     
     filterwarnings('ignore')
-    
+ 
     print('\n-------------------')
     print('Running TRIPpy '+version)
     print('-------------------\n')

@@ -1,0 +1,10 @@
+name: TRIPpy
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - iris=3.6
+  - geopy=2.3
+  - f90nml=1.4
+  - numba=0.55
+  - tqdm=4.65

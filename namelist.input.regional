@@ -3,7 +3,7 @@
 ########################
 &configuration
    forcing_path = './data/forcings/regional/'
-   forcing_prefix = 'TRF_wrf_fcsts_day1_'
+   forcing_prefix = 'TRF_monthly_wrf_fcsts_'
    output_path = './data/output/regional/'
    output_prefix = 'rivers_wrf_fcsts_day1_Parana_'
    params_path = './data/params/regional/'
