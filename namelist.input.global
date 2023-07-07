@@ -1,0 +1,56 @@
+########################
+# USER DEFINED SECTION #
+########################
+&configuration
+   forcing_path = './data/forcings/global/'
+   forcing_prefix = 'land_mrro_Lmon_HadGEM3-GC31-HM_hist-1950_r1i1p1f1_gn_'
+   output_path = './data/output/global/'
+   output_prefix = 'rivers_qd_Lmon_HadGEM3-GC31-HM_hist-1950_r1i1p1f1_gn_'
+   params_path = './data/params/global/'
+   params_ifile = 'DRT_qd_dir_seq.nc'
+   sequence_long_name = 'flow_sequence'
+   direction_long_name = 'flow_direction'
+   preproc = True
+   params_ofile = 'DRT_qd_length_next.nc'
+   length_long_name = 'TRIPpy length to next downstream point'
+   next_y_long_name = 'TRIPpy location next downstream point in latitude'
+   next_x_long_name = 'TRIPpy location next downstream point in longitude'
+   restart = False
+   restart_file = ''
+   restart_t = 0
+   spinup_years = 3
+   spinup_cycles = 2
+   start = 2001
+   end = 2010
+   speed = 0.5
+   meander = 1.4
+   rivers_timestep = 1
+   antarctica = False
+/
+####################
+# END USER DEFINED #
+####################
+
+# forcing_path: Relative or absolute path to the directory with the forcing files
+# forcing_prefix: Prefix of forcing netCDF files. The prefix is completed with [????.nc], where [????] are digits indicating the year and [.nc] the format. The forcing files should contain a variable called runoff_flux, which is the total runoff flux in [kg m-2 s-1].
+# output_path: Relative or absolute path to store the output files. The output files include a log of the configuration [namelist.output.TRIPpy_version], the spinup files (if any), and the simulation output files.
+# output_prefix: Prefix of output netCDF files. The prefix is completed with [spincycle?_spinyear?_t???.nc], where [?] are digits indicating the spinup cycle number and year (starting with 0) and the time-step number (starting with 000), and [.nc] indicates the format. An output file per timestep is stored.
+# params_path: Relative or absolute path to the directory with the parameter files.
+# params_ifile: Filename of the file containing the flow direction and the flow sequence, which defines the river network. The domain and grid of the river network is then adopted for the simulation, i.e., the forcing files are regridded to the river network grid.
+# sequence_long_name: String indicating the long_name of the flow sequence variable.
+# direction_long_name: String indicating the long_name of the flow direction variable.
+# preproc: [True] when preprocessing is needed. Preprocessing means to calculate the parameters length, next_y, and next_x for the given river network. This process sometimes takes longer than the simulation itself. Thus, check wether these parameters are already available in the file params_ofile. They should have the same grid than the river network defined in the params_ifile.
+# length_long_name: String indicating the long_name of the river length.
+# next_y_long_name: String indicating the long_name of the next downstream point in latitude.
+# next_x_long_name: String indicating the long_name of the next downstream point in longitude.
+# restart: [True] to restart a simulation. 
+# restart_file: Filename of the output file from where the simulation has to be restarted.
+# restart_t: Time-step of the restart_file from when the simulation has to be restarted. For instance in daily simulations if the restart_file corresponds to the day 300, restart_t=300.
+# spinup_years: Number of spinup years per cycle. The corresponding forcing files must be available to run the spinup. 
+# spinup_cycles: Number of spinup cycles. Each cycle runs spinup_years. For instance, if spinup_years=2, spinup_cycles=3, and start=2001, the model runs 6 years of spinup sequentially forced by years 2001, 2002, 2001, 2002, 2001, and 2002.
+# start: Four digits indicating the first year of simulation. It is also used to run the spinup, and the restart when if restart=True.
+# end: Four digits indicating the last year of simulation.
+# speed: Flow velocity in [m s-1]
+# meander: Meandering ratio. It should be >= 1. The river length between two connected grid cells is calculated as l=m.d, where m is the meandering ratio, and d is the linear distance between the grid cells.
+# rivers_timestep: Timestep of the simulations. This integer value is multiplied by the timestep of the forcings to get the timestep of the simulation. Currently should be set as 1, thus the simulation timestep adopts the forcing timesteps. In future version is expected to makes it more flexible, for instance, allowing the simulation at monthly time-scale from daily forcings.
+# antarctica: [True] when the river network defined in the params_ifile includes Antarctica. This flag is needed given that several checks are needed when the Antarctica is part of the domain given the number of exceptions arise around the latitude -90, in particular, around the South Pole, which has much more than eight neigbours present in any other gridcell.
