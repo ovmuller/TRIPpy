@@ -10,9 +10,9 @@ TRIPpy is a river routing model that collects the runoff from each grid cell in 
 
 This is the very first version of the model called TRIPpy v1.0.
 
-## Usage
+## Documentation
 
-Details on how to use TRIPpy are provided in the [wiki](https://github.com/ovmuller/TRIPpy/wiki).
+The documentation of TRIPpy is provided in the [wiki](https://github.com/ovmuller/TRIPpy/wiki).
 
 ## Citation
 See doi of the release you use.
@@ -24,6 +24,12 @@ TRIPpy has been succesfully used in :
 
 - Müller, O. V., P. C. McGuire, P. L. Vidale, E. Hawkins: River flow in the near future: a global perspective in the context of a high-emission climate change scenario. Under revision in HESS.
 
+## Acknowledgements
 
+I would like to thank the following colleagues, whose comments and feedback have contributed to the better development of TRIPpy.
 
-
+- Leandro Sgroi
+- Patrick McGuire
+- Pier Luigi Vidale
+- Benoît Vannière
+- Reinhard Schiemann
