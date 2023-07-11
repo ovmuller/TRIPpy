@@ -12,7 +12,7 @@ This is the very first version of the model called TRIPpy v1.0.
 
 ## Usage
 
-Details on how to use TRIPpy, as well as more implimentation details, can be found in the documentation.
+Details on how to use TRIPpy are provided in the [wiki](https://github.com/ovmuller/TRIPpy/wiki).
 
 ## Citation
 See doi of the release you use.
