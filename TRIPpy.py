@@ -45,17 +45,17 @@ def main():
     if restart: print('Restart from file: '+restart_file)
     
     # LOAD RIVER ANCIHMARY FILES AND CALCULATE
-    sequence = iris.load(params_path+params_ifile,sequence_long_name)[0]
-    direction = iris.load(params_path+params_ifile,direction_long_name)[0]
+    direction = iris.load(params_path+params_ifile,'flow_direction')[0]
+    sequence = iris.load(params_path+params_ifile,'flow_sequence')[0]
 
     # CALCULATE LENGTH AND NEXT DOWNSTREAM POINT
     if preproc:
         print('\nPreprocessing parameters for TRIPpy')
         set_params(direction,antarctica,params_path+params_ofile)
     
-    length = iris.load(params_path+params_ofile,length_long_name)[0]
-    next_y = iris.load(params_path+params_ofile,next_y_long_name)[0]
-    next_x = iris.load(params_path+params_ofile,next_x_long_name)[0]
+    length = iris.load(params_path+params_ofile,'TRIPpy_length_to_next_downstream_point')[0]
+    next_y = iris.load(params_path+params_ofile,'TRIPpy_index_of_next_downstream_point_in_latitude')[0]
+    next_x = iris.load(params_path+params_ofile,'TRIPpy_index_of_next_downstream_point_in_longitude')[0]
 
     # take data for faster processing
     sequ = sequence.data
@@ -92,7 +92,7 @@ def main():
     for spc in range(spinup_cycles):
         for spy in range(spinup_years):
         
-            print('Running spinup #%d' % (spy))
+            print('Running spinup  %d/%d' % (spc*spinup_years+spy+1,spinup_years*spinup_cycles))
             # LOAD RUNOFF DATA FOR A GIVEN YEAR
             print('Loading '+forcing_prefix+str(start+spy)+'.nc')
             runoff_flux = iris.load_cube(forcing_path+forcing_prefix+str(start+spy)+'.nc','runoff_flux')
@@ -124,7 +124,8 @@ def main():
     if restart:
         storage_2d = iris.load_cube(restart_file,'storage')[-1]
         storage[-1] = storage_2d.data
-        t0 = restart_t
+        t0 = int(restart_file[-6:-3])+1
+        if t0 == nt: t0 = 0        
     
     # Run simulation
     for yr in range(start,end+1):
@@ -168,10 +169,8 @@ def set_configuration():
 
 
     global forcing_path, forcing_prefix, output_prefix, output_path, params_path
-    global params_ifile, preproc, restart, restart_file, restart_t, spinup_cycles, spinup_years, start, end
-    global params_ofile, speed, meander, river_timestep
-    global sequence_long_name, direction_long_name, length_long_name
-    global next_y_long_name, next_x_long_name, antarctica
+    global params_ifile, preproc, restart, restart_file, spinup_cycles, spinup_years, start, end
+    global params_ofile, speed, meander, river_timestep, antarctica
 
     print('Reading namelist.input')
     nml = f90nml.read('namelist.input')
@@ -181,24 +180,18 @@ def set_configuration():
     nml['configuration'].setdefault('output_path', './data/output/')
     nml['configuration'].setdefault('output_prefix', 'rivers_qd_HadGEM3-GC31-LM_hist-1950_r1i1p1f1_gn_')
     nml['configuration'].setdefault('params_path', './data/params/')
-    nml['configuration'].setdefault('params_ifile', 'DRT_qd_dir_seq.nc')
+    nml['configuration'].setdefault('params_ifile', 'river_network.nc')
     nml['configuration'].setdefault('preproc', False)
+    nml['configuration'].setdefault('params_ofile', 'aux_params.nc')
     nml['configuration'].setdefault('restart', False) # if True CHECK spinup and start
     nml['configuration'].setdefault('restart_file', '')
-    nml['configuration'].setdefault('restart_t', 0) 
     nml['configuration'].setdefault('spinup_years', 1) # number of spinup years per cycle
     nml['configuration'].setdefault('spinup_cycles', 1)# number of spinup cycles
     nml['configuration'].setdefault('start', 1950) # start year, the simulation starts on 1st Jan
     nml['configuration'].setdefault('end', 1950)   # end year, the simulation ends on 30th Dec
-    nml['configuration'].setdefault('params_ofile', 'DRT_qd_length_next.nc')
     nml['configuration'].setdefault('speed', 0.5)
     nml['configuration'].setdefault('meander', 1.4)
     nml['configuration'].setdefault('river_timestep', 1)
-    nml['configuration'].setdefault('sequence_long_name', 'flow_direction')
-    nml['configuration'].setdefault('direction_long_name', 'flow_sequence')
-    nml['configuration'].setdefault('length_long_name', 'TRIPpy length to next downstream point')
-    nml['configuration'].setdefault('next_y_long_name', 'TRIPpy location next downstream point in latitude')
-    nml['configuration'].setdefault('next_x_long_name', 'TRIPpy location next downstream point in longitude')
     nml['configuration'].setdefault('antarctica','False')
                                     
     forcing_path = nml['configuration'].get('forcing_path')
@@ -210,7 +203,6 @@ def set_configuration():
     preproc = nml['configuration'].get('preproc')
     restart = nml['configuration'].get('restart')
     restart_file = nml['configuration'].get('restart_file')
-    restart_t = nml['configuration'].get('restart_t')
     spinup_years = nml['configuration'].get('spinup_years')
     spinup_cycles = nml['configuration'].get('spinup_cycles')
     start = nml['configuration'].get('start')
@@ -219,11 +211,6 @@ def set_configuration():
     speed = nml['configuration'].get('speed')
     meander = nml['configuration'].get('meander')
     river_timestep = nml['configuration'].get('river_timestep')
-    sequence_long_name = nml['configuration'].get('sequence_long_name')
-    direction_long_name = nml['configuration'].get('direction_long_name')
-    length_long_name = nml['configuration'].get('length_long_name')
-    next_y_long_name = nml['configuration'].get('next_y_long_name')
-    next_x_long_name = nml['configuration'].get('next_x_long_name') 
     antarctica = nml['configuration'].get('antarctica')
     
     if restart == 0:
@@ -295,16 +282,16 @@ def set_params(direction, antarctica, filename):
 
     riverslength = target_cube.copy()
     riverslength.var_name = 'length'
-    riverslength.long_name = length_long_name
+    riverslength.long_name = 'TRIPpy_length_to_next_downstream_point'
     riverslength.units = ('m')
 
     next_y = target_cube.copy()
     next_y.var_name = 'next_y'
-    next_y.long_name = next_y_long_name
+    next_y.long_name = 'TRIPpy_index_of_next_downstream_point_in_latitude'
 
     next_x = target_cube.copy()
     next_x.var_name = 'next_x'
-    next_x.long_name = next_x_long_name
+    next_x.long_name = 'TRIPpy_index_of_next_downstream_point_in_longitude'
 
     # loop over latitude
     for la in tqdm(direction.coord('latitude').points):
