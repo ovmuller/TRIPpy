@@ -18,7 +18,6 @@
    end = 2010
    speed = 0.5
    meander = 1.4
-   rivers_timestep = 1
    antarctica = False
 /
 ####################

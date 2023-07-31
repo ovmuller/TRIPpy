@@ -70,9 +70,8 @@ def main():
     # DEFINE TRIP TIMESTEP IN SECS
     t1 = runoff_flux.coord('time').points[1]
     t2 = runoff_flux.coord('time').points[2]
-    timestep = (t2-t1)*86400.
-    print('Timestep: '+str(timestep/60)+' min\n')
-    dt = river_timestep*timestep
+    dt = (t2-t1)*86400.
+    print('Timestep: '+str(dt/60)+' min\n')
 
     # GET DIMENSIONS TO ITERATE
     nt = len(runoff_flux.coord('time').points)
@@ -170,7 +169,7 @@ def set_configuration():
 
     global forcing_path, forcing_prefix, output_prefix, output_path, params_path
     global params_ifile, preproc, restart, restart_file, spinup_cycles, spinup_years, start, end
-    global params_ofile, speed, meander, river_timestep, antarctica
+    global params_ofile, speed, meander, antarctica
 
     print('Reading namelist.input')
     nml = f90nml.read('namelist.input')
@@ -191,7 +190,6 @@ def set_configuration():
     nml['configuration'].setdefault('end', 1950)   # end year, the simulation ends on 30th Dec
     nml['configuration'].setdefault('speed', 0.5)
     nml['configuration'].setdefault('meander', 1.4)
-    nml['configuration'].setdefault('river_timestep', 1)
     nml['configuration'].setdefault('antarctica','False')
                                     
     forcing_path = nml['configuration'].get('forcing_path')
@@ -210,7 +208,6 @@ def set_configuration():
     params_ofile = nml['configuration'].get('params_ofile')
     speed = nml['configuration'].get('speed')
     meander = nml['configuration'].get('meander')
-    river_timestep = nml['configuration'].get('river_timestep')
     antarctica = nml['configuration'].get('antarctica')
     
     if restart == 0:
