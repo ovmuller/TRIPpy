@@ -24,7 +24,7 @@ See doi of the release you use.
 TRIPpy has been succesfully used in :
 - Müller, O. V., P. L. Vidale, B. Vannière, R. Schiemann, and P. C. McGuire, 2021: Does the HadGEM3-GC3.1 GCM Overestimate Land Precipitation at High Resolution? A Constraint Based on Observed River Discharge. J. Hydrometeor., 22, 2131–2151, [https://doi.org/10.1175/JHM-D-20-0290.1](https://doi.org/10.1175/JHM-D-20-0290.1).
 
-- Müller, O. V., P. C. McGuire, P. L. Vidale, E. Hawkins: River flow in the near future: a global perspective in the context of a high-emission climate change scenario. Under revision in HESS.
+- Müller, O. V., P. C. McGuire, P. L. Vidale, E. Hawkins: River flow in the near future: a global perspective in the context of a high-emission climate change scenario. Under revision in HESS, [https://doi.org/10.5194/egusphere-2023-1281] (https://doi.org/10.5194/egusphere-2023-1281).
 
 ## Acknowledgements
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.7
 # encoding: utf-8
 """
-TRIPpy v1.0.0
+TRIPpy v1.0
 @author: Omar V. Müller, ovmuller@gmail.com
 """
 
