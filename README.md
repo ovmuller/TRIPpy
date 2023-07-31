@@ -20,7 +20,7 @@ This is the very first version of the model called TRIPpy v1.0. Download it from
 The documentation of TRIPpy is provided in the [wiki](https://github.com/ovmuller/TRIPpy/wiki).
 
 ## Citation
-See doi of the release you use.
+Müller, Omar V., 2023. TRIPpy v1.0. Zenodo. DOI: [https://doi.org/10.5281/zenodo.8199913](10.5281/zenodo.8199913).
 
 ## Publications
 
