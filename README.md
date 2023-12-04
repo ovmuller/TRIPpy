@@ -5,7 +5,7 @@
 
 ## Brief description
 
-This repository serves as the public source code repository of the TRIPpy model. TRIPpy stands for Total Runoff Integrating Pathways in python. TRIPpy is a standalone implementation of the TRIP model, originally developed by [Oki and Sud (1999)](https://doi.org/10.1175/1087-3562(1998)002<0001:DOTRIP>2.3.CO;2) in Fortran. This implementation is developed and maintained by [Omar V. Müller](https://www.researchgate.net/profile/Omar-Mueller). For help and/or contributions contact him at [ovmuller@gmail.com](mailto:ovmuller@gmail.com).
+This repository serves as the public source code repository of the TRIPpy model. TRIPpy stands for Total Runoff Integrating Pathways in python. TRIPpy is a standalone implementation of the TRIP model, originally developed by [Oki and Sud (1998)](https://doi.org/10.1175/1087-3562(1998)002<0001:DOTRIP>2.3.CO;2) in Fortran. This implementation is developed and maintained by [Omar V. Müller](https://www.researchgate.net/profile/Omar-Mueller). For help and/or contributions contact him at [ovmuller@gmail.com](mailto:ovmuller@gmail.com).
 
 TRIPpy is a river routing model that collects the runoff from each grid cell in a given domain and drives it through a prescribed river network, estimating the river storage and outflow of each grid cell. TRIPpy uses a simple advection method to route total runoff through the topography. Full description of the equations is provided in the appendix of [Müller et al. 2021](https://doi.org/10.1175/JHM-D-20-0290.1). 
 
