@@ -1,4 +1,4 @@
-name: TRIPpy
+name: trippy
 channels:
   - conda-forge
 dependencies:

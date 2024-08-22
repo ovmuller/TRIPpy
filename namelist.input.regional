@@ -1,25 +1,60 @@
 ########################
 # USER DEFINED SECTION #
 ########################
-&configuration
-   forcing_path = './data/forcings/regional/'
-   forcing_prefix = 'TRF_monthly_wrf_fcsts_'
-   output_path = './data/output/regional/'
-   output_prefix = 'rivers_wrf_fcsts_Parana_'
-   params_path = './data/params/regional/'
-   params_ifile = 'DRT_10th_dir_seq.Parana.nc'
-   preproc = True
-   params_ofile = 'DRT_10th_length_next.Parana.nc'
-   restart = False
-   restart_file = ''
-   spinup_years = 1
-   spinup_cycles = 1
-   start = 2019
-   end = 2019
-   speed = 0.5
-   meander = 1.4
-   antarctica = 'False'
+
+&workflow
+    preprocess =    .true.
+    calibrate =     .true.
+    run =           .true.
 /
+
+&preprocess
+    p_params_path =         './data/params/regional/'
+    p_dir_seq_ifile =       'DRT_16th_dir_seq.LPB.nc'
+    p_length_next_ofile =   'P_DRT_16th_length_next.LPB.nc'
+    p_antarctica =          'False'
+    p_speed =               0.5
+    p_meander =             1.4
+    p_speed_meander_ofile = 'P_DRT_16th_speed_meander.LPB.nc'
+/
+
+&calibrate
+    c_obs_path =            './data/obs/regional/'
+    c_obs_suffix =          '_Q_Month.Cmd.txt'
+    c_params_path =         './data/params/regional/'
+    c_dir_seq_ifile =       'DRT_16th_dir_seq.LPB.nc'
+    c_dir_seq_ofile =       'C_DRT_16th_dir_seq.LPB.nc'
+    c_length_next_ifile =   'P_DRT_16th_length_next.LPB.nc'
+    c_forcing_path =        './data/forcings/regional/'
+    c_forcing_prefix =      'TOTAL_RUNOFF_LaPlata.monmean.'    
+    c_speed =               0.2, 0.5, 0.8, 1.1
+    c_meander =             1.1, 1.4
+    c_speed_meander_ofile = 'C_DRT_16th_speed_meander.LPB.nc'
+    c_output_path =         './data/output/regional/'
+    c_output_prefix =       'RIVER_FLOW_LaPlata.calibration.'
+    c_spinup_years =        1
+    c_spinup_cycles =       1
+    c_start =               2001
+    c_end =                 2010
+/
+
+&run
+    r_forcing_path =        './data/forcings/regional/'
+    r_forcing_prefix =      'TOTAL_RUNOFF_LaPlata.monmean.'
+    r_params_path =         './data/params/regional/'
+    r_dir_seq_ifile =       'DRT_16th_dir_seq.LPB.nc'
+    r_length_next_ifile =   'P_DRT_16th_length_next.LPB.nc'
+    r_speed_meander_ifile = 'C_DRT_16th_speed_meander.LPB.nc'
+    r_output_path =         './data/output/regional/'
+    r_output_prefix =       'RIVER_FLOW_LaPlata.calibrated.'
+    r_restart =             .false.
+    r_restart_file =        ''
+    r_spinup_years =        1
+    r_spinup_cycles =       1
+    r_start =               2001
+    r_end =                 2010
+/
+
 ####################
 # END USER DEFINED #
 ####################

@@ -1,25 +1,40 @@
 ########################
 # USER DEFINED SECTION #
 ########################
-&configuration
-   forcing_path = './data/forcings/global/'
-   forcing_prefix = 'land_mrro_Lmon_HadGEM3-GC31-HM_hist-1950_r1i1p1f1_gn_'
-   output_path = './data/output/global/'
-   output_prefix = 'rivers_qd_Lmon_HadGEM3-GC31-HM_hist-1950_r1i1p1f1_gn_'
-   params_path = './data/params/global/'
-   params_ifile = 'DRT_qd_dir_seq.nc'
-   preproc = True
-   params_ofile = 'DRT_qd_length_next.nc'
-   restart = False
-   restart_file = ''
-   spinup_years = 3
-   spinup_cycles = 2
-   start = 2001
-   end = 2010
-   speed = 0.5
-   meander = 1.4
-   antarctica = False
+
+&workflow
+    preprocess =    .true.
+    calibrate =     .false.
+    run =           .true.
 /
+
+&preprocess
+    p_params_path =         './data/params/global/'
+    p_dir_seq_ifile =       'DRT_qd_dir_seq.nc'
+    p_length_next_ofile =   'P_DRT_qd_length_next.nc'
+    p_antarctica =          'False'
+    p_speed =               0.5
+    p_meander =             1.4
+    p_speed_meander_ofile = 'P_DRT_qd_speed_meander.LPB.nc'
+/
+
+&run
+    r_forcing_path =        './data/forcings/global/'
+    r_forcing_prefix =      'land_mrro_Lmon_HadGEM3-GC31-HM_hist-1950_r1i1p1f1_gn_'
+    r_params_path =         './data/params/global/'
+    r_dir_seq_ifile =       'DRT_qd_dir_seq.nc'
+    r_length_next_ifile =   'P_DRT_qd_length_next.nc'
+    r_speed_meander_ifile = 'P_DRT_qd_speed_meander.LPB.nc'
+    r_output_path =         './data/output/global/'
+    r_output_prefix =       'rivers_qd_Lmon_HadGEM3-GC31-HM_hist-1950_r1i1p1f1_gn_'
+    r_restart =             .false.
+    r_restart_file =        ''
+    r_spinup_years =        3
+    r_spinup_cycles =       2
+    r_start =               2001
+    r_end =                 2010
+/
+
 ####################
 # END USER DEFINED #
 ####################
