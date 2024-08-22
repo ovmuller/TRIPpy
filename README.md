@@ -13,7 +13,16 @@ The main feature of the model is its simplicity, allowing long-term simulations 
 
 ## Download
 
-This is the very first version of the model called TRIPpy v1.0. Download it from [releases](https://github.com/ovmuller/TRIPpy/releases).
+This is the latest version of the model called TRIPpy v2.0. 
+Download any version from [releases](https://github.com/ovmuller/TRIPpy/releases).
+
+## New features of the latest version:
+
+The main updates in version 2.0 are:
++ Calibration: The addition of manual calibration for key parameters.
++ Code optimization: Enhanced efficiency for faster calculations of river network parameters.
++ Improved namelist: More complete and organized configuration options.
++ Parameters from file: Ability to load key parameters from a NetCDF file.
 
 ## Documentation
 
