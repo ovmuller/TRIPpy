@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/663470111.svg)](https://zenodo.org/badge/latestdoi/663470111)
+[![DOI](https://zenodo.org/badge/663470111.svg)](https://zenodo.org/badge/latestdoi/663470111) This DOI corresponds to TRIPpy v1.0.
 
 
 # TRIPpy
@@ -26,7 +26,7 @@ The main updates in version 2.0 are:
 
 ## Documentation
 
-The documentation of TRIPpy is provided in the [wiki](https://github.com/ovmuller/TRIPpy/wiki).
+The documentation of TRIPpy v2.0 is under development. The documentation of TRIPpy v1.0 is provided in the [wiki](https://github.com/ovmuller/TRIPpy/wiki).
 
 ## Citation
 Müller, Omar V., 2023. TRIPpy v1.0. Zenodo. DOI: https://doi.org/10.5281/zenodo.8199913 .
