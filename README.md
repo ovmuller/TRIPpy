@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/663470111.svg)](https://zenodo.org/badge/latestdoi/663470111) This DOI corresponds to TRIPpy v1.0.
+<!--[![DOI](https://zenodo.org/badge/663470111.svg)](https://zenodo.org/badge/latestdoi/663470111) This DOI corresponds to TRIPpy v1.0.-->
 
 
 # TRIPpy
