@@ -13,8 +13,7 @@ The main feature of the model is its simplicity, allowing long-term simulations 
 
 ## Download
 
-This is the latest version of the model called TRIPpy v2.0. 
-Download any version from [releases](https://github.com/ovmuller/TRIPpy/releases).
+The latest and previous versions can be downloaded from [releases](https://github.com/ovmuller/TRIPpy/releases).
 
 ## New features of the latest version:
 
