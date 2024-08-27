@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/663470111.svg)](https://zenodo.org/badge/latestdoi/663470111)
+
 Welcome to the TRIPpy wiki!
 
 ## 1.1 Brief description
