@@ -235,9 +235,9 @@ def set_configuration():
         c_dir_seq_ifile = calibrate_section.get('c_dir_seq_ifile', 
                                                 'DRT_16th_dir_seq.LPB.nc')
         c_dir_seq_ofile = calibrate_section.get('c_dir_seq_ofile', 
-                                                'c_DRT_16th_dir_seq.LPB.nc')
+                                                'C_DRT_16th_dir_seq.LPB.nc')
         c_length_next_ifile = calibrate_section.get('c_length_next_ifile', 
-                                                    'DRT_16th_length_next.LPB.nc')
+                                                    'P_DRT_16th_length_next.LPB.nc')
         c_forcing_path = calibrate_section.get('c_forcing_path', 
                                                './data/forcings/')
         c_forcing_prefix = calibrate_section.get('c_forcing_prefix', 
@@ -247,11 +247,11 @@ def set_configuration():
         c_meander = calibrate_section.get('c_meander', [1.4, 1.6])
         if not isinstance(c_meander,list): c_meander = [c_meander]
         c_speed_meander_ofile = calibrate_section.get('c_speed_meander_ofile', 
-                                                      'c_DRT_16th_speed_meander.LPB.nc')
+                                                      'C_DRT_16th_speed_meander.LPB.nc')
         c_output_path = calibrate_section.get('c_output_path',
                                               './data/output/ctrl_values/')
         c_output_prefix = calibrate_section.get('c_output_prefix',
-                                                'RIVER_FLOW_LaPlata.calbiration.')
+                                                'C_RIVER_FLOW_LaPlata.calbiration.')
         c_spinup_years =  calibrate_section.get('c_spinup_years',  1)
         c_spinup_cycles = calibrate_section.get('c_spinup_cycles',  1)
         c_start = calibrate_section.get('c_start',  2001)
