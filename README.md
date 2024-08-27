@@ -14,7 +14,7 @@ The latest and previous versions can be downloaded from [releases](https://githu
 
 ## 1.3 Documentation
 
-The documentation of TRIPpy is done on this wiki!.
+The documentation of TRIPpy is done on this [wiki!](https://github.com/ovmuller/TRIPpy/wiki).
 
 ## 1.4 Citation
 Müller, Omar V., 2023. TRIPpy v1.0. Zenodo. DOI: https://doi.org/10.5281/zenodo.8199913 .
