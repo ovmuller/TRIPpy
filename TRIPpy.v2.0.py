@@ -218,7 +218,7 @@ def set_configuration():
         p_dir_seq_ifile = preprocess_section.get('p_dir_seq_ifile', 
                                                  'DRT_16th_dir_seq.LPB.nc')
         p_length_next_ofile = preprocess_section.get('p_length_next_ofile', 
-                                                     'DRT_16th_length_next.LPB.nc')
+                                                     'p_DRT_16th_length_next.LPB.nc')
         p_antarctica = preprocess_section.get('p_antarctica', False)
         p_speed = preprocess_section.get('p_speed', 0.5)
         p_meander = preprocess_section.get('p_meander', 1.4)
