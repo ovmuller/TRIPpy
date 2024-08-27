@@ -249,7 +249,7 @@ def set_configuration():
         c_speed_meander_ofile = calibrate_section.get('c_speed_meander_ofile', 
                                                       'C_DRT_16th_speed_meander.LPB.nc')
         c_output_path = calibrate_section.get('c_output_path',
-                                              './data/output/ctrl_values/')
+                                              './data/output/')
         c_output_prefix = calibrate_section.get('c_output_prefix',
                                                 'C_RIVER_FLOW_LaPlata.calbiration.')
         c_spinup_years =  calibrate_section.get('c_spinup_years',  1)
@@ -267,13 +267,13 @@ def set_configuration():
         r_dir_seq_ifile = run_section.get('r_dir_seq_ifile', 
                                           'DRT_16th_dir_seq.LPB.nc')
         r_length_next_ifile = run_section.get('r_length_next_ifile', 
-                                              'DRT_16th_dir_seq.LPB.nc')
+                                              'P_DRT_16th_length_next.LPB.nc')
         r_speed_meander_ifile = run_section.get('r_speed_meander_ifile', 
-                                                'DRT_16th_speed_meander.LPB.nc')
+                                                'P_DRT_16th_speed_meander.LPB.nc')
         r_output_path = run_section.get('r_output_path', 
-                                        './data/output/ctrl_values/')
+                                        './data/output/')
         r_output_prefix = run_section.get('r_output_prefix', 
-                                          'RIVEr_FLOW_LaPlata.')
+                                          'R_RIVER_FLOW_LaPlata.')
         r_restart = run_section.get('r_restart', False)
         r_restart_file = run_section.get('r_restart_file', '')
         r_spinup_years = run_section.get('r_spinup_years', 1)
