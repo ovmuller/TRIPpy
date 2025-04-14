@@ -26,7 +26,7 @@ Müller, Omar V., 2024. TRIPpy v2.0. Zenodo. DOI: https://doi.org/10.5281/zenodo
 
 Müller, Omar V., 2023. TRIPpy v1.0. Zenodo. DOI: https://doi.org/10.5281/zenodo.8199913 .
 
-## 1.5 Version Changes
+## 1.5 Changes by Version
 
 Changes in Version 2.1:
 + Added option c_start_tier in namelist.input section calibration, which allows to restart calibration in a given tier. 
