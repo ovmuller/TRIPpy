@@ -26,14 +26,24 @@ Müller, Omar V., 2024. TRIPpy v2.0. Zenodo. DOI: https://doi.org/10.5281/zenodo
 
 Müller, Omar V., 2023. TRIPpy v1.0. Zenodo. DOI: https://doi.org/10.5281/zenodo.8199913 .
 
-## 1.5 Publications
+## 1.5 Version Changes
+
+Changes in Version 2.1:
++ Added option c_start_tier in namelist.input section calibration, which allows to restart calibration in a given tier. 
+
+Changes in Version 2.0:
++ Optimization for faster calculations of river network parameters.
++ Read meander and flow velocity for each grid cell from a nc file.
++ Incorporates manual calibration.
+
+## 1.6 Publications
 
 TRIPpy has been succesfully used in :
 - Müller, O. V., P. C. McGuire, P. L. Vidale, E. Hawkins, 2024: River flow in the near future: a global perspective in the context of a high-emission climate change scenario, Hydrol. Earth Syst. Sci., 28, 2179–2201, [https://doi.org/10.5194/hess-28-2179-2024](https://doi.org/10.5194/hess-28-2179-2024).
 
 - Müller, O. V., P. L. Vidale, B. Vannière, R. Schiemann, and P. C. McGuire, 2021: Does the HadGEM3-GC3.1 GCM Overestimate Land Precipitation at High Resolution? A Constraint Based on Observed River Discharge. J. Hydrometeor., 22, 2131–2151, [https://doi.org/10.1175/JHM-D-20-0290.1](https://doi.org/10.1175/JHM-D-20-0290.1).
 
-## 1.6 Acknowledgements
+## 1.7 Acknowledgements
 
 I would like to thank the following colleagues, whose comments and feedback have contributed to the better development of TRIPpy.
 
