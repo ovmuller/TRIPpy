@@ -1,5 +1,11 @@
 # Release Notes
 
+## Version 2.2 - 2025-10-16
+- **Optimization:** Replacing the netCDF I/O operations during calibration with in-memory storage, significantly reducing disk operations and processing time.
+
+## Version 2.1 - 2025-04-14
+- **Restart:** Incorporates an option in the namelist to restart the calibration process.
+
 ## Version 2.0 - 2024-08-27
 - **Optimization:** Faster calculations for river network parameters.
 - **Data Handling:** Ability to read meander and flow velocity for each grid cell from a netCDF file.
