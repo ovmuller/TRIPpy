@@ -20,7 +20,9 @@ The documentation of TRIPpy is done on this [wiki](https://github.com/ovmuller/T
 
 ## 1.4 Citation
 
-Müller, Omar V., 2025. TRIPpy v2.1. Zenodo. DOI: https://doi.org/10.5281/zenodo.15211526 .
+Müller, Omar V., 2025b. TRIPpy v2.1. Zenodo. DOI: https://doi.org/10.5281/zenodo.17368997 .
+
+Müller, Omar V., 2025a. TRIPpy v2.1. Zenodo. DOI: https://doi.org/10.5281/zenodo.15211526 .
 
 Müller, Omar V., 2024. TRIPpy v2.0. Zenodo. DOI: https://doi.org/10.5281/zenodo.13381510 .
 
@@ -28,6 +30,9 @@ Müller, Omar V., 2023. TRIPpy v1.0. Zenodo. DOI: https://doi.org/10.5281/zenodo
 
 ## 1.5 Changes by Version
 
+Changes in Version 2.2:
++ Simulation outputs during calibration are now stored in memory instead of being saved to disk as netCDF, significantly reducing I/O operations and accelerating the calibration process.
+    
 Changes in Version 2.1:
 + Added option c_start_tier in namelist.input section calibration, which allows to restart calibration in a given tier. 
 
