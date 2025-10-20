@@ -31,6 +31,9 @@ Müller, Omar V., 2023. TRIPpy v1.0. Zenodo. DOI: https://doi.org/10.5281/zenodo
 
 ## 1.5 Changes by Version
 
+Changes in Version 2.3:
++ Parameter outputs during calibration are now stored in memory instead of being saved to disk as netCDF, reducing I/O operations and accelerating the calibration process.
+
 Changes in Version 2.2:
 + Simulation outputs during calibration are now stored in memory instead of being saved to disk as netCDF, significantly reducing I/O operations and accelerating the calibration process.
     
