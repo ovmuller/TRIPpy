@@ -8,3 +8,4 @@ dependencies:
   - f90nml=1.4
   - numba=0.55
   - tqdm=4.65
+  - deap
