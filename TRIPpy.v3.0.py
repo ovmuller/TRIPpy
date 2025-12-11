@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.9
 # encoding: utf-8
 """
-TRIPpy v2.3
+TRIPpy v3.0
 @author: Omar V. Müller, ovmuller@gmail.com
 
 Changes in Version 3.0:
