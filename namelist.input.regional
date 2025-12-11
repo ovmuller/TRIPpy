@@ -27,8 +27,12 @@
     c_length_next_ifile =   'P_DRT_16th_length_next.LPB.nc'
     c_forcing_path =        './data/forcings/regional/'
     c_forcing_prefix =      'TOTAL_RUNOFF_LaPlata.monmean.'    
-    c_speed =               0.2, 0.5, 0.8, 1.1
-    c_meander =             1.1, 1.4
+    c_speed_min =           0.1
+    c_speed_max =           1.5
+    c_meander_min =         1.2 
+    c_meander_max =         2.0
+    pop_size =              10
+    ngen =                  10
     c_start_tier =          -1
     c_speed_meander_ofile = 'C_DRT_16th_speed_meander.LPB.nc'
     c_output_path =         './data/output/regional/'
