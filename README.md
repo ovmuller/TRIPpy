@@ -44,7 +44,7 @@ Changes in Version 2.2:
 + Simulation outputs during calibration are now stored in memory instead of being saved to disk as netCDF, significantly reducing I/O operations and accelerating the calibration process.
     
 Changes in Version 2.1:
-+ Added option c_start_tier in namelist.input section calibration, which allows to restart calibration in a given tier. 
++ Added option `c_start_tier` in `namelist.input` section calibration, which allows to restart calibration in a given tier. 
 
 Changes in Version 2.0:
 + Optimization for faster calculations of river network parameters.
@@ -62,6 +62,7 @@ TRIPpy has been succesfully used in :
 
 I would like to thank the following colleagues, whose comments and feedback have contributed to the better development of TRIPpy.
 
+- Leandro Vignolo
 - Leandro Sgroi
 - Patrick McGuire
 - Pier Luigi Vidale
